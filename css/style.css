@@ -75,39 +75,41 @@ header {
     
 }
 
-.container{
-    max-width: 50rem;
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    margin: auto;
-    gap: 5.5rem;
-    font-family:"Lunasima", sans-serif;
-
-}
-.container img{
-    border-radius: 1rem;
-}
-
-.titulo-nombre{
+.item1{
+    display:flex;
+    flex-wrap:nowrap;
     color:#000000;
     font-size: 4rem;
     font-family: "Lunasima", sans-serif;
-    margin-top: 3rem;
+    margin-top: 4rem;
     text-align: center;
-    margin: 1rem;
+    margin: 1.5rem;
     width: 50rem;
     letter-spacing: .2rem;
-    margin-left: 35rem;
+    margin-left: 40rem;
 }
 
-article p{
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: center;
+}
+
+.container img{
+    border-radius: 2rem;
+    height: 30rem;
+    width: 53.2rem;
+    object-fit: cover; /* recorta la img para que no se vea pixelada*/
+    flex-grow: 1;
+    margin: 1rem;
+}
+
+ article p {
     text-align: left;
-    margin: 2.5rem 4rem;
+    margin: 2.5rem 3.5rem;
     background-color: #fbfbdc;
-    padding: 1rem;
-    border-radius: 1rem;
-    
+    padding: 1.5rem; 
 }
 
 /* recetas  */
@@ -235,10 +237,56 @@ footer p {
     color: #5471af;
 }
 
+/* ordenador de escritorio  */
+@media(max-width:1024px){ 
+    
+    header{
+        flex-direction:column ;
+    }
+
+    .item1{
+        flex-direction: column;
+    }
+
+    .container {
+        flex-direction: column;
+        
+    }
+
+    footer{
+        flex-direction: column;
+    }
+}
+
 /* Responsive tablet */
 @media(max-width:768px) {
-    header {
+    .container-header {
         flex-direction: column;
+        justify-content:center;
+        margin: auto;
+    }
+
+    header nav a {
+        flex-direction: column;
+        margin: 0 auto;
+        justify-content:  center;
+        font-size: 1.4rem;
+    }
+
+    .item1{
+        background-color: #9b4218;
+        display: block;
+        margin-left: 2rem;
+        width: 35rem;
+        padding: 1rem;
+        font-size: 3rem;
+        margin: 2rem auto;
+        
+    }
+    .container img {
+        padding: .5rem;
+        display: block;
+        
     }
 
     footer  {
@@ -250,30 +298,45 @@ footer p {
     }
 }
 
-
 /* Responsive Mobile */
 
 @media(max-width:512px) { 
+    
     .container-header {
         flex-direction: column;
+        justify-content: center;
+      
     }
 
     .logo {
         width: 8rem;
         height: 8rem;
         margin-top: 0;
-        
     }
     
     header nav a {
-            display: block;
-            margin: 0 auto ;
-            text-align: center;
-            font-size: 1.4rem;
+        flex-direction: column;
+        justify-content:center;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.4rem;
+    
+    }
+
+    .item1{
+        background-color:#9b4218;
+        display: block;
+        margin-left: 2rem;
+        width: 35rem;
+        padding: 1rem;
+        font-size: 2.8rem;
+        margin: 1rem auto;
     }
 
     .container img {
-        padding: 1rem;
+        padding: 1rem auto;
+        display: block;
+    
     }
 
     article p{
@@ -282,6 +345,6 @@ footer p {
         background-color: #fbfbdc;
         padding: 1rem;
         border-radius: 1rem;
-        
     }
 }
+
