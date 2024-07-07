@@ -1,5 +1,6 @@
 
 import mysql.connector 
+
 class Catalogo: 
     def __init__(self, host, user, password, database): 
 
@@ -66,9 +67,9 @@ class Catalogo:
         return recetas
     
     
-    def eliminar_receta(self, id): # Eliminamos un producto de la tabla a partir de su código     
+    def eliminar_receta(self, id): # Eliminar un producto de la tabla a partir de su código     
         self.cursor.execute(f"DELETE FROM recetas WHERE id = {id}") 
         self.conn.commit() 
         return self.cursor.rowcount > 0
     
-catalogo= Catalogo(host='localhost', user='root', password='', database='normi')
+catalogo = Catalogo(host='localhost', user='root', password='', database='normi')

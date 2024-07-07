@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cucin'Ale</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="icon" href="img/logo.jpg">
+</head>
+
+<body>
+   
+    <div class="modificar">
+        <div>
+            <h1>Modificar Receta</h1>
+        </div>
+        
+        <form class="modificar2" action="form-guardar-cambios">
+            <label for="id">Id:</label><br>
+            <input type="number" id="id" required><br>
+
+            <div class="modificar2">
+                <button type="submit">Modificar Producto</button> 
+                <a class="registro" href="nuevo-registro.html">volver</a>
+            </div>
+            
+        </form>
+        
+        <div id="datos-receta" style="display: none;">
+            <h2>Datos de la receta</h2>
+            <form id="form-guardar-cambios">
+                <label for="nombreModificar">Nombre:</label>
+                <input type="text" id="nombreModificar" required><br>
+
+                <label for="descripcion">descripcion:</label>
+                <input type="text" id="descripcion" required><br>
+                
+                <!-- Imagen actual del producto - Debe comentarse al subirse al servidor-->
+                <img id="imagen-actual" style="max-width: 200px; display: none;">
+                <!-- Vista previa de la nueva imagen seleccionada -->
+                <img id="imagen-vista-previa" style="max-width: 200px; display: none;">
+
+                <!-- Input para nueva imagen -->
+                <label for="nuevaImagen">Nueva Imagen:</label>
+                <input type="file" id="nuevaImagen"><br>
+
+                <label for="ingredientes">Ingredientes:</label>
+                <input type="text" id="ingredientes" required><br>
+
+                <br>
+                <label for="procedimientoModificar">Procedimiento:</label>
+                <input type="text" id="procedimientoModificar" required><br>
+
+                <button type="submit">Guardar Cambios</button>
+                <a href="modificar.html">Cancelar</a>
+            </form>
+        </div>
+        
+
+    
+    </div>
+</body>
+</html>
