@@ -236,6 +236,9 @@ footer p {
 .fa-square-facebook {
     color: #5471af;
 }
+.fa-file {
+    color: rgb(9, 9, 38);
+}
 
 /* ordenador de escritorio  */
 @media(max-width:1024px){ 
