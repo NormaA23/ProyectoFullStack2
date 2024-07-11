@@ -105,7 +105,7 @@ header {
     margin: 1rem;
 }
 
- article p {
+article p {
     text-align: left;
     margin: 2.5rem 3.5rem;
     background-color: #fbfbdc;
@@ -122,7 +122,6 @@ header {
     align-items: center;
     gap: 2rem;
     text-align:center;
-   
 }
 
 .receta{
@@ -229,19 +228,19 @@ footer p {
     margin-left: 1rem;
 }
 
-.fa-square-instagram {
-    color:#c3597c;
+.fa-instagram {
+    color:#000000;
 }
 
 .fa-square-facebook {
-    color: #5471af;
+    color: #000000;
 }
 .fa-file {
-    color: rgb(9, 9, 38);
+    color: #000000;
 }
 
-/* Nuevo registro   */
-.contenedor-recetas{
+/* Nuevo registro  */
+.contenedor-recetas2{
     display: flex;
     flex-direction: column;
     gap: .5rem;
@@ -250,12 +249,12 @@ footer p {
     align-items: center;
     margin: 3rem auto;
     border-radius: 2rem;
+    text-align: center;
 }
 
 .contenedor-recet{
     display: flex;
     flex-direction: column;
-    gap: .5rem;
     font-size: 2rem;
     color: #000000;
     padding: 1rem;
@@ -306,6 +305,18 @@ footer p {
     margin: 2rem;
 }
 
+.listado-recetas{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 80rem;
+    background-color: #f8f8c7;
+    text-align: center;
+    margin: 2rem auto;
+    height: 100%;
+    padding: 2rem;
+    border-radius: 2rem;
+}
 
 
 /* ordenador de escritorio  */
