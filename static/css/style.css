@@ -261,8 +261,9 @@ footer p {
 }
 
 .registro{
+    background-color: #9b4218;
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
     border: .1rem solid #000000;
     border-radius: .5rem;
     padding: .5rem;

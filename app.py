@@ -103,14 +103,14 @@ class Catalogo:
 #--------------------------------------------------------------------
 # Crear una instancia de la clase Catalogo
 
-catalogo = Catalogo(host="localhost", user="root", password="", database="normi") 
+catalogo = Catalogo(host="normi.mysql.pythonanywhere-services.com", user="normi", password="1234sql", database="normi$app") 
 # las variables con los datos de la conexion estan guardadas en el archivo datosconexion.py
 
 
 # Carpeta para guardar las imagenes
-ruta_destino = 'Tp full stack 2/img' # Reemplazar por los datos de Pythonanywhere
+#ruta_destino = './static/imagenes/' # Reemplazar por los datos de Pythonanywhere
 
-#ruta_destino = '/home/normi/mysite/static/imagenes/'
+ruta_destino = '/home/normi/mysite/static/imagenes/'
 
 @app.route("/recetas", methods=["GET"])
 def listar_recetas():

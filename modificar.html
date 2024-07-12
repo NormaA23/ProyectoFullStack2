@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cucin'Ale</title>
-    <link rel="stylesheet" href="css/style.css"> 
-    <link rel="icon" href="img/logo.jpg">
+    <link rel="stylesheet" href="static/css/style.css"> 
+    <link rel="icon" href="static/imagenes/logo.jpg">
 </head>
 
 <body>
@@ -59,13 +59,13 @@
     </div>
 
     <script>
-        const URL = "http://127.0.0.1:5000/" // Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
+        //const URL = "http://127.0.0.1:5000/" // Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
 
         //const URL = "https://normi.pythonanywhere.com/"
 
 
         // Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
-        //const URL = "https://normi.pythonanywhere.com/"
+        const URL = "https://normi.pythonanywhere.com/"
 
         // Variables de estado para controlar la visibilidad y los datos del formulario
         let codigo = '';
@@ -122,7 +122,7 @@
                     //imagenActual.src = './static/imagenes/' + imagen_url;                                  
                     //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
                     
-                    imagenActual.src = 'Tp full stack 2/img' + imagen_url;
+                    imagenActual.src = '/home/normi/mysite/static/imagenes/' + imagen_url;
                     imagenActual.style.display = 'block'; // Muestra la imagen actual
                 } else {
                     imagenActual.style.display = 'none'; // Oculta la imagen si no hay URL
