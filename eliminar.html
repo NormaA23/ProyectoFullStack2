@@ -31,7 +31,7 @@
     </div>
     <br>
 
-   
+
     <script>
         const URL = "http://127.0.0.1:5000/" // Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
 
@@ -49,14 +49,15 @@
                 .then(data => {
                     const recetasTable = document.getElementById('recetas-table').getElementsByTagName('tbody')[0];
                     recetasTable.innerHTML = ''; // Limpia la tabla antes de insertar nuevos datos
-                    data.forEach(producto => {
+                    data.forEach(receta => {
                         const row = recetasTable.insertRow();
                         row.innerHTML = `
                             <td>${receta.codigo}</td>
                             <td>${receta.nombre}</td>
                             <td>${receta.descripcion}</td>
-                            <td align="right">${receta.ingredientes}</td>
-                            <td><button onclick="eliminarProducto('${receta.procedimiento}')">Eliminar</button></td>
+                            <td>${receta.ingredientes}</td>
+                            <td>${receta.procedimiento}</td>
+                            <td><button onclick="eliminarReceta('${receta.codigo}')">Eliminar</button></td>
                         `;
                     });
                 })

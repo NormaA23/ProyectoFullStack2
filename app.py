@@ -77,7 +77,7 @@ class Catalogo:
         else:
             print("Receta no encontrado.")
 
-    def agregar_receta(self, nombre,  descripcion, imagen, ingredientes, procedimiento): 
+    def agregar_receta(self, nombre, descripcion, imagen, ingredientes, procedimiento): 
         sql = "INSERT INTO recetas (nombre, descripcion, imagen_url, ingredientes, procedimiento) VALUES (%s, %s, %s, %s, %s)" 
         valores = (nombre, descripcion, imagen, ingredientes, procedimiento)
 
@@ -182,7 +182,7 @@ def modificar_receta(codigo):
             nombre_imagen = receta["imagen_url"]
 
 # Se llama al método modificar_producto pasando el codigo del producto y los nuevos datos.
-    if catalogo.modificar_receta(codigo, nuevo_nombre, nueva_descripcion, nombre_imagen,nuevos_ingredientes, nuevo_procedimiento):
+    if catalogo.modificar_receta(codigo, nuevo_nombre, nueva_descripcion, nombre_imagen, nuevos_ingredientes, nuevo_procedimiento):
         return jsonify({"mensaje": "Receta modificada"}), 200
     else:
         return jsonify({"mensaje": "Receta no encontrada"}), 403

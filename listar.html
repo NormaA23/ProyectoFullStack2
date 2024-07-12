@@ -15,7 +15,7 @@
         <thead> <!--Encabezado de la tabla con columnas para código, descripción, cantidad, precio y acciones.-->
             <tr>
                 <th>Código</th>
-                <th>nombre</th>
+                <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Imagen</th>
                 <th>Ingredientes</th>
@@ -59,15 +59,15 @@
                     let fila = document.createElement('tr'); //Crea una nueva fila de tabla (<tr>) para cada producto.
                     fila.innerHTML = '<td>' + receta.codigo + '</td>' +
                         '<td>' + receta.nombre + '</td>' +
-                        '<td align="right">' + receta.ingredientes + '</td>' +
-                        '<td align="right">' + receta.procedimiento + '</td>' +
+                        '<td>' + receta.descripcion + '</td>' +
+                        '<td><img src=./Tp full stack 2/img' + receta.imagen_url +' alt="Imagen de la receta" style="width: 100px;"></td>' +
+                        '<td>' + receta.ingredientes + '</td>' +
+                        '<td>' + receta.procedimiento + '</td>';
                         
                         // Mostrar miniatura de la imagen (verificar que funciona)
                         //'<td><img src=./static/imagenes/' + producto.imagen_url +' alt="Imagen del producto" style="width: 100px;"></td>' + '<td align="right">' + producto.proveedor + '</td>';
                         //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
                         
-                        '<td><img src= ./static/imagenes/' + receta.imagen_url +' alt="Imagen del producto" style="width: 100px;"></td>' + '<td align="right">' + receta.imagen + '</td>';
-                    
                     //Una vez que se crea la fila con el contenido del producto, se agrega a la tabla utilizando el método appendChild del elemento tablaProductos.
                     tablaRecetas.appendChild(fila);
                 }

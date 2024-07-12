@@ -16,8 +16,8 @@
         </div>
         
         <form class="modificar2" action="form-guardar-cambios">
-            <label for="id">Id:</label><br>
-            <input type="number" id="id" required><br>
+            <label for="codigo">Código:</label><br>
+            <input type="number" id="codigo" required><br>
 
             <div class="modificar2">
                 <button type="submit">Modificar Producto</button> 
@@ -32,7 +32,7 @@
                 <label for="nombreModificar">Nombre:</label>
                 <input type="text" id="nombreModificar" required><br>
 
-                <label for="descripcion">descripcion:</label>
+                <label for="descripcion">Descripcion:</label>
                 <input type="text" id="descripcion" required><br>
                 
                 <!-- Imagen actual del producto - Debe comentarse al subirse al servidor-->
@@ -72,7 +72,7 @@
         let nombre = '';
         let descripcion = '';
         let ingredientes = '';
-        let procedimientos = '';
+        let procedimiento = '';
         let imagen_url = '';
         let imagenSeleccionada = null;
         let imagenUrlTemp = null;
@@ -98,7 +98,7 @@
                     nombre = data.nombre;
                     descripcion = data.descripcion;
                     ingredientes = data.ingredientes;
-                    procedimientos = data.procedimientos;
+                    procedimiento = data.procedimiento;
                     imagen_url = data.imagen_url;
                     mostrarDatosReceta = true; //Activa la vista del segundo formulario
                     mostrarFormulario();
@@ -110,11 +110,11 @@
 
         // Muestra el formulario con los datos del producto
         function mostrarFormulario() {
-            if (mostrarDatosProducto) {
-                document.getElementById('descripcionModificar').value = nombre;
-                document.getElementById('cantidadModificar').value = descripcion;
-                document.getElementById('precioModificar').value = ingredientes;
-                document.getElementById('proveModificar').value = procedimientos;
+            if (mostrarDatosReceta) {
+                document.getElementById('nombreModificar').value = nombre;
+                document.getElementById('descripcionModificar').value = descripcion;
+                document.getElementById('ingredientesModificar').value = ingredientes;
+                document.getElementById('procedimientoModificar').value = procedimiento;
 
                 const imagenActual = document.getElementById('imagen-actual');
                 if (imagen_url && !imagenSeleccionada) { // Verifica si imagen_url no está vacía y no se ha seleccionado una imagen
@@ -122,7 +122,7 @@
                     //imagenActual.src = './static/imagenes/' + imagen_url;                                  
                     //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
                     
-                    imagenActual.src = './static/imagenes/' + imagen_url;
+                    imagenActual.src = 'Tp full stack 2/img' + imagen_url;
                     imagenActual.style.display = 'block'; // Muestra la imagen actual
                 } else {
                     imagenActual.style.display = 'none'; // Oculta la imagen si no hay URL
@@ -188,7 +188,7 @@
             document.getElementById('nombreModificar').value = '';
             document.getElementById('descripcionModificar').value = '';
             document.getElementById('ingredientesModificar').value = '';
-            document.getElementById('procedimientosModificar').value = '';
+            document.getElementById('procedimientoModificar').value = '';
             document.getElementById('nuevaImagen').value = '';
 
             const imagenActual = document.getElementById('imagen-actual');
@@ -201,7 +201,7 @@
             nombre = '';
             descripcion = '';
             ingredientes = '';
-            procedimientos = '';
+            procedimiento = '';
             imagen_url = '';
             imagenSeleccionada = null;
             imagenUrlTemp = null;
