@@ -250,6 +250,7 @@ footer p {
     margin: 3rem auto;
     border-radius: 2rem;
     text-align: center;
+    padding: 1rem;
 }
 
 .contenedor-recet{
@@ -257,7 +258,8 @@ footer p {
     flex-direction: column;
     font-size: 2rem;
     color: #000000;
-    padding: 1rem;
+    padding: .5rem;
+    
 }
 
 .registro{
@@ -266,7 +268,7 @@ footer p {
     color: #ffffff;
     border: .1rem solid #000000;
     border-radius: .5rem;
-    padding: .5rem;
+    padding: .7rem;
 }
 
 /* Agregar receta */

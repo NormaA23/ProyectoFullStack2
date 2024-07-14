@@ -42,25 +42,54 @@ class Catalogo:
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS recetas ( 
             codigo INT AUTO_INCREMENT PRIMARY KEY, 
             nombre VARCHAR(255)NOT NULL,
-            imagen_url VARCHAR(255),
+            imagen_url VARCHAR(200),
             descripcion VARCHAR(255) NOT NULL, 
             ingredientes VARCHAR(700) NOT NULL, 
             procedimiento VARCHAR(900))''')
         self.conn.commit()
         
-        
         self.cursor.close()
         self.cursor = self.conn.cursor(dictionary=True)
+    #-------------------------------------------------------------------------
+    def agregar_receta(self, nombre, descripcion, imagen, ingredientes, procedimiento): 
+        sql = "INSERT INTO recetas (nombre, descripcion, imagen_url, ingredientes, procedimiento) VALUES (%s, %s, %s, %s, %s)" 
+        valores = (nombre, descripcion, imagen, ingredientes, procedimiento)
 
+        self.cursor.execute(sql,valores)
+        self.conn.commit()
+        return self.cursor.lastrowid
+    
+    #-------------------------------------------------------------------------------------------------------------------------
+
+    def consultar_receta(self, codigo):
+        self.cursor.execute(f"SELECT * FROM recetas WHERE codigo = {codigo}")
+        return self.cursor.fetchone()
+    
+    #-------------------------------------------------------------------------------------------------------------------------
+
+    def modificar_receta(self, codigo, nuevo_nombre, nueva_descripcion, nueva_imagen, nuevos_ingredientes, nuevo_procedimiento):
+        sql = "UPDATE recetas SET nombre = %s, descripcion = %s, imagen_url = %s, ingredientes = %s, procedimiento = %s, WHERE codigo = %s" 
+        valores = (nuevo_nombre, nueva_descripcion, nueva_imagen, nuevos_ingredientes, nuevo_procedimiento, codigo)
+
+        self.cursor.execute(sql, valores)
+        self.conn.commit()
+        return self.cursor.rowcount > 0
+    
+    #-------------------------------------------------------------------------------------------------------------------------
+    
     def listar_recetas(self):
         self.cursor.execute("SELECT * FROM recetas")
         recetas = self.cursor.fetchall()
         return recetas
     
-    def consultar_receta(self, codigo):
-        
-        self.cursor.execute(f"SELECT * FROM recetas WHERE codigo = {codigo}")
-        return self.cursor.fetchone()
+    #-------------------------------------------------------------------------------------------------------------------------
+
+    def eliminar_receta(self, codigo): # Eliminar un producto de la tabla a partir de su código     
+        self.cursor.execute(f"DELETE FROM recetas WHERE codigo = {codigo}") 
+        self.conn.commit() 
+        return self.cursor.rowcount > 0
+    
+    #-------------------------------------------------------------------------------------------------------------------------
 
     def mostrar_receta(self, codigo):
         
@@ -77,51 +106,31 @@ class Catalogo:
         else:
             print("Receta no encontrado.")
 
-    def agregar_receta(self, nombre, descripcion, imagen, ingredientes, procedimiento): 
-        sql = "INSERT INTO recetas (nombre, descripcion, imagen_url, ingredientes, procedimiento) VALUES (%s, %s, %s, %s, %s)" 
-        valores = (nombre, descripcion, imagen, ingredientes, procedimiento)
-
-        self.cursor.execute(sql,valores)
-        self.conn.commit()
-        return self.cursor.lastrowid
-
-    def modificar_receta(self, codigo, nuevo_nombre, nueva_descripcion, nueva_imagen, nuevos_ingredientes, nuevo_procedimiento):
-        sql = "UPDATE recetas SET nombre = %s, descripcion = %s, imagen_url = %s, ingredientes = %s, procedimiento = %s, WHERE codigo = %s" 
-        valores = (nuevo_nombre, nueva_descripcion, nueva_imagen, nuevos_ingredientes, nuevo_procedimiento, codigo)
-
-        self.cursor.execute(sql, valores)
-        self.conn.commit()
-        return self.cursor.rowcount > 0
-
-    def eliminar_receta(self, codigo): # Eliminar un producto de la tabla a partir de su código     
-        self.cursor.execute(f"DELETE FROM recetas WHERE codigo = {codigo}") 
-        self.conn.commit() 
-        return self.cursor.rowcount > 0
-
 #--------------------------------------------------------------------
 # Cuerpo del programa
 #--------------------------------------------------------------------
 # Crear una instancia de la clase Catalogo
 
-catalogo = Catalogo(host="normi.mysql.pythonanywhere-services.com", user="normi", password="1234sql", database="normi$app") 
+catalogo = Catalogo(host='normi.mysql.pythonanywhere-services.com', user='normi', password='1357hola', database='normi$app') 
 # las variables con los datos de la conexion estan guardadas en el archivo datosconexion.py
 
 
 # Carpeta para guardar las imagenes
 #ruta_destino = './static/imagenes/' # Reemplazar por los datos de Pythonanywhere
 
-ruta_destino = '/home/normi/mysite/static/imagenes/'
+ruta_destino = 'https://www.pythonanywhere.com/home/normi/mysite/static/imagenes/'
 
 @app.route("/recetas", methods=["GET"])
-def listar_recetas():
-    recetas = catalogo.listar_recetas()
+def listar_recetar():
+    recetas = catalogo.listar_recetas(),
     return jsonify(recetas)
+
 
 @app.route("/recetas/<int:codigo>", methods=["GET"])
 def mostrar_receta(codigo):
     receta = catalogo.consultar_receta(codigo)
     if receta:
-        return jsonify(receta)
+        return jsonify(receta), 201
     else:
         return "Receta no encontrada", 404
 
@@ -204,7 +213,6 @@ def eliminar_receta(codigo):
             return jsonify({"mensaje": "Error al eliminar la receta"}), 500
     else:
         return jsonify({"mensaje": "Receta no encontrada"}), 404
-
 
 if __name__ == "__main__":
     app.run(debug=True)

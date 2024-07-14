@@ -11,24 +11,23 @@
 
     <div class="listado-recetas">
         <h1>Listado de recetas</h1>
-    <table class="tabla-listado" border="1"> <!-- Se crea una tabla para mostrar los productos. -->
-        <thead> <!--Encabezado de la tabla con columnas para código, descripción, cantidad, precio y acciones.-->
-            <tr>
-                <th>Código</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Imagen</th>
-                <th>Ingredientes</th>
-                <th>Procedimiento</th>
-            </tr>
-        </thead>
-        <tbody id="tablaRecetas"></tbody>
-    </table><br>
+        <table class="tabla-listado" border="1"> <!-- Se crea una tabla para mostrar los productos. -->
+            <thead> <!--Encabezado de la tabla con columnas para código, descripción, cantidad, precio y acciones.-->
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Imagen</th>
+                    <th>Ingredientes</th>
+                    <th>Procedimiento</th>
+                </tr>
+            </thead>
+            <tbody id="tablaRecetas"> </tbody>
+        </table><br>
 
-    <div class="">
-        <a class="registro" href="nuevo-registro.html">Volver</a>
-    </div>
-
+        <div class="">
+            <a class="registro" href="nuevo-registro.html">Volver</a>
+        </div>
     </div>
     
     <script>
@@ -60,7 +59,7 @@
                     fila.innerHTML = '<td>' + receta.codigo + '</td>' +
                         '<td>' + receta.nombre + '</td>' +
                         '<td>' + receta.descripcion + '</td>' +
-                        '<td><img src= /home/normi/mysite/static/imagenes/' + receta.imagen_url +' alt="Imagen de la receta" style="width: 100px;"></td>' +
+                        '<td><img src= https://www.pythonanywhere.com/home/normi/mysite/static/imagenes/'+ receta.imagen_url +' alt="Imagen de la receta" style="width: 100px;"></td>' +
                         '<td>' + receta.ingredientes + '</td>' +
                         '<td>' + receta.procedimiento + '</td>';
                         

@@ -15,47 +15,49 @@
             <h1>Modificar Receta</h1>
         </div>
         
-        <form class="modificar2" action="form-guardar-cambios">
-            <label for="codigo">Código:</label><br>
-            <input type="number" id="codigo" required><br>
-
-            <div class="modificar2">
-                <button type="submit">Modificar Producto</button> 
-                <a class="registro" href="nuevo-registro.html">volver</a>
-            </div>
-            
-        </form>
-        
-        <div id="datos-receta" style="display: none;">
-            <h2>Datos de la receta</h2>
-            <form id="form-guardar-cambios">
-                <label for="nombreModificar">Nombre:</label>
-                <input type="text" id="nombreModificar" required><br>
-
-                <label for="descripcion">Descripcion:</label>
-                <input type="text" id="descripcion" required><br>
-                
-                <!-- Imagen actual del producto - Debe comentarse al subirse al servidor-->
-                <img id="imagen-actual" style="max-width: 200px; display: none;">
-                <!-- Vista previa de la nueva imagen seleccionada -->
-                <img id="imagen-vista-previa" style="max-width: 200px; display: none;">
-
-                <!-- Input para nueva imagen -->
-                <label for="nuevaImagen">Nueva Imagen:</label>
-                <input type="file" id="nuevaImagen"><br>
-
-                <label for="ingredientes">Ingredientes:</label>
-                <input type="text" id="ingredientes" required><br>
-
-                <br>
-                <label for="procedimientoModificar">Procedimiento:</label>
-                <input type="text" id="procedimientoModificar" required><br>
-
-                <button type="submit">Guardar Cambios</button><br>
-                <a href="modificar.html">Cancelar</a>
+        <div id="app">
+            <form class="modificar2" id="form-obtener-receta">
+                <label for="codigo">Código:</label><br>
+                <input type="text" id="codigo" required><br>
+    
+                <div class="modificar2">
+                    <button type="submit">Modificar Producto</button> 
+                    <a class="registro" href="nuevo-registro.html">Volver</a>
+                </div>
                 
             </form>
+            
+            <div id="datos-receta" style="display: none;">
+                <h2>Datos de la receta</h2>
+                <form id="form-guardar-cambios">
+                    <label for="nombreModificar">Nombre:</label>
+                    <input type="text" id="nombreModificar" required><br>
+    
+                    <label for="descripcion">Descripcion:</label>
+                    <input type="text" id="descripcion" required><br>
+                    
+                    <!-- Imagen actual del producto - Debe comentarse al subirse al servidor-->
+                    <img id="imagen-actual" style="max-width: 200px; display: none;">
+                    <!-- Vista previa de la nueva imagen seleccionada -->
+                    <img id="imagen-vista-previa" style="max-width: 200px; display: none;">
+    
+                    <!-- Input para nueva imagen -->
+                    <label for="nuevaImagen">Nueva Imagen:</label>
+                    <input type="file" id="nuevaImagen"><br>
+    
+                    <label for="ingredientes">Ingredientes:</label>
+                    <input type="text" id="ingredientes" required><br>
+    
+                    <label for="procedimientoModificar">Procedimiento:</label>
+                    <input type="text" id="procedimientoModificar" required><br>
+    
+                    <button type="submit">Guardar Cambios</button><br>
+                    <a href="modificar.html">Cancelar</a>
+                    
+                </form>
+            </div>
         </div>
+        
     </div>
 
     <script>
@@ -122,7 +124,7 @@
                     //imagenActual.src = './static/imagenes/' + imagen_url;                                  
                     //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
                     
-                    imagenActual.src = '/home/normi/mysite/static/imagenes/' + imagen_url;
+                    imagenActual.src =' https://www.pythonanywhere.com/home/normi/mysite/static/imagenes/' + imagen_url;
                     imagenActual.style.display = 'block'; // Muestra la imagen actual
                 } else {
                     imagenActual.style.display = 'none'; // Oculta la imagen si no hay URL
