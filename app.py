@@ -45,11 +45,12 @@ class Catalogo:
             imagen_url VARCHAR(200),
             descripcion VARCHAR(255) NOT NULL, 
             ingredientes VARCHAR(700) NOT NULL, 
-            procedimiento VARCHAR(900))''')
+            procedimiento VARCHAR(255))''')
         self.conn.commit()
         
         self.cursor.close()
         self.cursor = self.conn.cursor(dictionary=True)
+        
     #-------------------------------------------------------------------------
     def agregar_receta(self, nombre, descripcion, imagen, ingredientes, procedimiento): 
         sql = "INSERT INTO recetas (nombre, descripcion, imagen_url, ingredientes, procedimiento) VALUES (%s, %s, %s, %s, %s)" 
@@ -111,7 +112,7 @@ class Catalogo:
 #--------------------------------------------------------------------
 # Crear una instancia de la clase Catalogo
 
-catalogo = Catalogo(host='normi.mysql.pythonanywhere-services.com', user='normi', password='1357hola', database='normi$app') 
+catalogo = Catalogo(host='normi.mysql.pythonanywhere-services.com', user="normi", password="1357hola", database="normi$app") 
 # las variables con los datos de la conexion estan guardadas en el archivo datosconexion.py
 
 

@@ -71,4 +71,5 @@ class Catalogo:
 
 
 catalogo = Catalogo(host="localhost", user="root", password="", database="normi") 
+
 catalogo.agregar_receta(2,"crema catalana", "muy rico", "natilla", "facil de hacer") 
